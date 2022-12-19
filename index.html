@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
@@ -15,8 +16,23 @@
                 <button >Generate passwords</button>
             </div>
             <div class="slidecontainer">
-                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                <h3 class ="psw-adjust">adjust password length: 10</h3>
+                <input type="range" min="1" max="20" value="10" class="slider" id="myRange">
               </div>
+              <div class = "selection">
+                <input type="checkbox" id="ABC" value="ABC">
+                <label for="ABC">uppercase</label>
+                <input type="checkbox" id="abc" value="aBC">
+                <label for="aBC">lowercase</label>
+                <input type="checkbox" id="123" value="12">
+                <label for="12">numbers</label>
+                <input type="checkbox" id="#$&" value="#$">
+                <label for="#$">special characters</label><br>
+        </div>
+        <div class = "copy-btn">
+            <button></button>
+            <h3 class ="psw-adjust">click to copy password ⬆️</h3>
+        </div>
         </div>
         <script src="index.js"></script>
     </body>
