@@ -1,0 +1,12 @@
+body {
+    width: 500px;
+    height: 500px;
+    margin: 0;
+    background: #1F2937;
+}
+
+#header {
+    text-align: center;
+    display: flex;
+    color: white;
+}
