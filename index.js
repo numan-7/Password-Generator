@@ -3,12 +3,18 @@ const lowerCharacters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n"
 const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 const specialCharacters= ["~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?", "/"];
 
+let passGen = [];
+
+// array that tells which arrays are in the pass gen
+let arraysNum = [];
+
 let passBtn = document.getElementById('psw-btn');
 let passRange = document.getElementById("myRange");
 let passLengthCounter = document.getElementById("psw-adjust");
 let copyBtn = document.getElementById("copy-btn");
 
 let passwordLength = 10;
+let catCounter = 0;
 
 let checkBoxes = {
     uppercase: false,
@@ -17,38 +23,108 @@ let checkBoxes = {
     specChars: false,
 }
 
+// gets rid of any pass generated password showing up
+function resetContents(){
+    document.getElementById("pass-btn").textContent = " ";
+}
+
+function shuffleArr(){
+    // shuffles final array
+    for (var i = passGen.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = passGen[i];
+        passGen[i] = passGen[j];
+        passGen[j] = temp;
+    }
+}
+
+function pushBack(name){
+    // push arrays into one
+    switch(name){
+        case 1:
+            arraysNum.push(1);
+            passGen.push(...capitalCharacters);
+            break;
+        case 2:
+            arraysNum.push(2);
+            passGen.push(...lowerCharacters);
+            break;
+        case 3:
+            arraysNum.push(3);
+            passGen.push(...numbers);
+            break;
+        case 4:
+            arraysNum.push(4);
+            passGen.push(...specialCharacters);
+            break;
+        default:
+            break;
+    }
+    shuffleArr(passGen);
+}
+
+// really a brute force method of removing it all, will need to improve in the future
+function remove(name){
+    // redefine array and reset it
+    passGen = [];
+    console.log("Contents of passGen [in-remove]:");
+    console.log(passGen);
+    
+    let newArray = [];
+    // have to create a new array here because using old array (arraysNum) will cause an infinite loop in the for loop
+    newArray = arraysNum;
+    
+    // removing the array num
+    var index = newArray.indexOf(name);
+    if (index > -1) {
+        newArray.splice(index, 1);
+    }
+    arraysNum = [];
+    for(let i = 0; i < newArray.length; i++){
+        pushBack(newArray[i]);
+    }
+}
+
 // check boxes
 document.getElementById("ABC").addEventListener("click", (event) => {
+    resetContents()
     if(event.target.checked){
-        checkBoxes[0] = true;
+        checkBoxes.uppercase = true;
+        pushBack(1);
     } else {
-        checkBoxes[0] = false;
+        remove(1);
+        checkBoxes.uppercase = false;
     } 
 });
 document.getElementById("abc").addEventListener("click", (event) => {
+    resetContents()
     if(event.target.checked){
-        checkBoxes[1] = true;
+        checkBoxes.lowercase = true;
+        pushBack(2);
     } else {
-        checkBoxes[1] = false;
+        remove(2);
+        checkBoxes.lowercase = false;
     }
 });
 document.getElementById("123").addEventListener("click", (event) => {
+    resetContents()
     if(event.target.checked){
-        checkBoxes[2] = true;
+        checkBoxes.nums = true;
+        pushBack(3);
     } else {
-        checkBoxes[2] = false;
+        remove(3);
+        checkBoxes.nums = false;
     }
 });
 document.getElementById("#$&").addEventListener("click", (event) => {
+    resetContents()
     if(event.target.checked){
-        checkBoxes[2] = true;
+        checkBoxes.specChars = true;
+        pushBack(4);
     } else {
-        checkBoxes[2] = false;
+        remove(4);
+        checkBoxes.specChars = false;
     }
-});
-
-passBtn.addEventListener("click", event => {
-    
 });
 
 // update the pass length var when a person clicks the slider
@@ -69,13 +145,29 @@ copyBtn.addEventListener("click", event => {
     navigator.clipboard.writeText(content);
     alert("Copied the text: " + content);
 });
+
 // checks if one of the checkboxes have been checked
 function checkCheck(){
-    if(!uppercase && !lowercase && !nums && !specChars){
-        alert("Please Check One of The Checkboxes to Generate");
-        return false;
-    } else {
-        return true;
+    let checker = false;
+    if(checkBoxes.uppercase || checkBoxes.lowercase || checkBoxes.nums || checkBoxes.specChars) {
+       checker = true;
     }
+    return checker;
 }
 
+passBtn.addEventListener("click", event => {
+    // document.getElementById("pass-btn").textContent = "";
+    var result = " ";
+    if(checkCheck()){
+        // one of the check boxes is check so begin generating password
+        for(let i = 0; i < passwordLength; i++){
+            // let chooseGroup = Math.floor(Math.abs(Math.random() * catCounter));
+            var random = Math.floor(Math.random() * passGen.length);
+            result += passGen[random];
+        }
+        document.getElementById("pass-btn").textContent = result;
+        // document.getElementById("pass-btn").textContent = result;
+    } else{
+        alert("Please select a check box.")
+    }
+});

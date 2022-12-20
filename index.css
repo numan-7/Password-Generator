@@ -4,6 +4,8 @@ body {
 }
 
 .wrapper {
+    border-bottom: 5px solid #065F46;
+    border-right: 5px solid #065F46;
     border-radius: 5%;
     background: #E5E7EB;
     width: 37rem;
@@ -132,10 +134,14 @@ input {
 #btns p{
     font-family: inherit;
     position: relative;
-    bottom: 5px;
+     bottom: 5px;
 }
 
 #footer{
-    margin-top: 85px;
-    text-align: center;
+    display: block;
+    margin-left: 50px;
+}
+
+a{
+    color: inherit;
 }
