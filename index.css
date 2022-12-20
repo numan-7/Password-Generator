@@ -1,8 +1,5 @@
 body {
     font-family: 'Karla', sans-serif;
-    font-weight: 400;
-    font-size: 1rem;
-    margin: 0;
     background: #1F2937;
 }
 
@@ -23,6 +20,7 @@ header h1{
 }
 
 header p {
+    font-weight: inherit;
     margin: 0;
     padding-top: 5px;
     color: #6B7280;
@@ -35,7 +33,7 @@ header p {
     background: #10B981;
     color: #F3F4F6;
     margin-left: 50px;
-    padding: 9px 17px 9px 15px;
+    padding: 10px 17px 10px 15px;
     border: none;
     gap: 12px;
     border-radius: 6px;
@@ -72,7 +70,7 @@ header p {
     opacity: 1;
 }
 
-.psw-adjust{
+#psw-adjust{
     font-size: 1rem;
     color: #374151;
     font-weight: 400;
@@ -102,34 +100,42 @@ input {
     width: 2%;
     height: 2%;
 }
-
-#btns{
-    display: flex;
-    flex-direction: row;
-}
-
-#pass-btn{
-    box-sizing: border-box;
-    background-color: #9CA3AF;
+#btns {
+    display: inline-flex;
     margin-left: 50px;
     margin-top: 35px;
-    padding: 18px 17px 18px 350px;
+}
+#pass-btn{
+    background-color: #9CA3AF;
     border: none;
     gap: 12px;
     border-radius: 6px;
+    min-width: 350px;
+    max-width: 350px;
+    min-height: 40px;
+    max-height: 40px;
+    text-align: center;
 }
 
 #copy-btn{
-    margin-top: 35px;
-    gap: 12px;
-    padding: 6px 5px 6px 5px;
-    box-sizing: border-box;
     margin-left: 5px;
     background: #10B981;
+    min-height: 35px;
     color: #F3F4F6;
     font-size: 1.25rem;
     font-family: inherit;
     cursor: pointer;
     border-radius: 6px;
     border: none;
+}
+
+#btns p{
+    font-family: inherit;
+    position: relative;
+    bottom: 5px;
+}
+
+#footer{
+    margin-top: 85px;
+    text-align: center;
 }
