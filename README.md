@@ -1,3 +1,7 @@
+# View 
+
+View the live project <a href = "https://jsbin.com/pidutikiku/edit?output" target = "_blank">here.</a>
+
 # Description
 
 A password generator made using CSS, HTML, and Javascript. This was my first time trying to make a project at this size, albeit small. I learned a lot doing this project.
