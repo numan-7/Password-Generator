@@ -43,7 +43,7 @@ header p {
     margin-bottom: 35px;
 }
 
-button:active{
+.wrapper2 button:active, #copy-btn:active{
     transform: scale(0.98);
 }
 
@@ -97,18 +97,39 @@ input {
     width: 10px;
 }
 
-.copy-btn{
-    display: block;
-    margin-left: 50px;
+
+#copy-img{
+    width: 2%;
+    height: 2%;
 }
 
-.copy-btn button{
+#btns{
+    display: flex;
+    flex-direction: row;
+}
+
+#pass-btn{
+    box-sizing: border-box;
     background-color: #9CA3AF;
+    margin-left: 50px;
     margin-top: 35px;
     padding: 18px 17px 18px 350px;
     border: none;
     gap: 12px;
     border-radius: 6px;
-    cursor: pointer
+}
 
+#copy-btn{
+    margin-top: 35px;
+    gap: 12px;
+    padding: 6px 5px 6px 5px;
+    box-sizing: border-box;
+    margin-left: 5px;
+    background: #10B981;
+    color: #F3F4F6;
+    font-size: 1.25rem;
+    font-family: inherit;
+    cursor: pointer;
+    border-radius: 6px;
+    border: none;
 }
