@@ -1,6 +1,7 @@
 body {
     font-family: 'Karla', sans-serif;
     background: #1F2937;
+    caret-color: transparent;
 }
 
 .wrapper {
@@ -11,10 +12,6 @@ body {
     width: 37rem;
     height: 37rem;
     margin: 4rem auto 0;
-    font-family: inherit;
-}
-
-#typ-eff{
     font-family: inherit;
 }
 
