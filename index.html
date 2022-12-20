@@ -5,12 +5,22 @@
         <link rel="stylesheet" href="index.css">
         <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,400;0,600;0,800;1,400;1,800&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     </head>
     <body>
         <div class = "wrapper">
                 <div class = "wrapper2"><header>
                     <h1> Generate a <br>
-                        <span style = "color: #10B981"> random password </span> </h1>
+                        <span style = "color: #10B981" id = "auto-type"> random password </span> </h1>
+                        <script>
+                            setTimeout(() => { var typed = new Typed("#auto-type" , {
+                                
+                                strings: ["random password", "r4nd0M $tR0ng p4Ssw0rd!"],
+                                typeSpeed: 125,
+                                backSpeed: 100,
+                            }) 
+                            }, 1500);
+                        </script>
                         <p>Never use an insecure password again.</p>
                 </header>
                 <button id = "psw-btn">Generate password</button>
