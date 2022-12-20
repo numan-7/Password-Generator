@@ -1,6 +1,6 @@
 # View 
 
-View the live project <a href = "https://thunderous-cupcake-fb720c.netlify.app/" target = "_blank">here.</a>
+View the live project <a href = "https://thunderous-cupcake-fb720c.netlify.app/" target = "_blank" rel= "noreferrer noopener">here.</a>
 
 # Description
 
