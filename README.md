@@ -1,6 +1,6 @@
 # View 
 
-View the live project <a href = "https://jsbin.com/pidutikiku/edit?output" target = "_blank">here.</a>
+View the live project <a href = "https://output.jsbin.com/pidutikiku" target = "_blank">here.</a>
 
 # Description
 
