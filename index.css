@@ -63,7 +63,7 @@ header p {
     transform: scale(0.98);
 }
 
-.wrapper2 button:hover{
+.wrapper2 button:hover, #copy-btn:hover{
  background: #059669;
 }
 
@@ -163,7 +163,6 @@ a{
 }
 
 #icon{
-    padding-bottom: 3px;
     position: relative;
     opacity: 0.85;
     width: 1.5rem;
