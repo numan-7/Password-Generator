@@ -4,11 +4,25 @@ body {
     caret-color: transparent;
 }
 
+.wrapperDark {
+    transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease;
+    border-bottom: 5px solid #065F46;
+    border-right: 5px solid #065F46;
+    border-radius: 5%;
+    background-color: #111827; 
+    /* E5E7EB */
+    width: 37rem;
+    height: 37rem;
+    margin: 4rem auto 0;
+    font-family: inherit;
+}
+
 .wrapper {
     border-bottom: 5px solid #065F46;
     border-right: 5px solid #065F46;
     border-radius: 5%;
-    background: #E5E7EB;
+    background-color: #E5E7EB; 
+    /* 111827 */
     width: 37rem;
     height: 37rem;
     margin: 4rem auto 0;
@@ -16,6 +30,7 @@ body {
 }
 
 header h1{
+    color: black;
     margin: 0;
     padding-top: 50px;
     padding-left: 50px;
@@ -80,7 +95,7 @@ header p {
     margin-bottom: 0;
 }
 
-.selection{
+#selection{
     cursor: default;
     color: #374151;
     display: inline;
@@ -145,4 +160,18 @@ input {
 
 a{
     color: inherit;
+}
+
+#icon{
+    padding-bottom: 3px;
+    position: relative;
+    opacity: 0.85;
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    margin-left: 300px;
+}
+
+#icon:hover{
+    opacity: 1;
 }

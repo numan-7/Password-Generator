@@ -8,13 +8,20 @@ let passGen = [];
 // array that tells which arrays are in the pass gen
 let arraysNum = [];
 
-let passBtn = document.getElementById('psw-btn');
-let passRange = document.getElementById("myRange");
-let passLengthCounter = document.getElementById("psw-adjust");
-let copyBtn = document.getElementById("copy-btn");
+const passBtn = document.getElementById('psw-btn');
+const passRange = document.getElementById("myRange");
+const passLengthCounter = document.getElementById("psw-adjust");
+const copyBtn = document.getElementById("copy-btn");
+const themeIcon = document.getElementById("icon");
+const theme = document.getElementById("theme");
+const adjustTheme = document.getElementById("psw-adjust");
+const checkBoxTheme = document.getElementById("selection");
+const genColor = document.getElementById("genColor");
+
 
 let passwordLength = 10;
 let catCounter = 0;
+let currentDisplay = "light";
 
 let checkBoxes = {
     uppercase: false,
@@ -22,6 +29,38 @@ let checkBoxes = {
     nums: false,
     specChars: false,
 }
+
+function switchIcon(){
+    if(currentDisplay === "light"){
+        // adjust the background color to dark
+        theme.classList.remove("wrapper");
+        theme.classList.add("wrapperDark"); 
+        // changes the font color of the "password length: x"
+        adjustTheme.style.color= "#6B7280";
+        // changes the font color of the checkboxes
+        checkBoxTheme.style.color = "#6B7280";
+        // changes the font color of the text "Generate a"
+        genColor.style.color = "#E5E7EB";
+        themeIcon.style.filter = "invert(35%) sepia(96%) saturate(661%) hue-rotate(121deg) brightness(100%) contrast(96%)";
+        themeIcon.style.transform = "scaleX(-1)";
+        currentDisplay = "dark";
+
+    } else { 
+        // adjust the background color to light
+        theme.classList.remove("wrapperDark"); 
+        theme.classList.add("wrapper");
+        // changes the font color of the "password length: x"
+        adjustTheme.style.color= "#374151";
+        // changes the font color of the checkboxes
+        checkBoxTheme.style.color = "#374151";
+        // changes the font color of the text "Generate a"
+        genColor.style.color = "black";
+        themeIcon.style.filter = "";
+        themeIcon.style.transform = "scaleX(1)";
+        currentDisplay = "light";
+    } 
+}
+
 
 // gets rid of any pass generated password showing up
 function resetContents(){
