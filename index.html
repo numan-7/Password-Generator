@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
         <link rel="stylesheet" href="index.css">
         <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -9,8 +8,19 @@
         <title>Password Generator</title>
         <link rel="shortcut icon" href="images/Breezeicons-apps-32-system-lock-screen.svg.png">
     </head>
-    <body>
-        <div id ="theme" class = " wrapperDark wrapper">
+    <body onload = "LightDarkMode()">
+        <script>
+            function LightDarkMode(){
+                if(!localStorage.getItem("Theme")){
+                    localStorage.setItem("Theme", "light")
+                } else if (localStorage.getItem("Theme") ==  "light"){
+                    setTheme("light")
+                } else {
+                    setTheme("dark")
+                }
+            }
+        </script>
+        <div id ="theme" class = "wrapper">
                 <div class = "wrapper2">
                     <header>
                         <h1 id = "genColor"> Generate a 

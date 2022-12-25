@@ -4,45 +4,63 @@ body {
     caret-color: transparent;
 }
 
-.wrapperDark {
-    transition: transform 0.5s ease, opacity 0.5s ease, color 0.5s ease;
-    border-bottom: 5px solid #065F46;
-    border-right: 5px solid #065F46;
-    border-radius: 5%;
-    background-color: #111827; 
-    /* E5E7EB */
-    width: 37rem;
-    height: 37rem;
-    margin: 4rem auto 0;
-    font-family: inherit;
+/* Global Settings & States */
+
+.wrapper2 button:hover, #copy-btn:hover{
+    background: #059669;
 }
+
+.slidecontainer, .wrapper2 button, #btns, #selection{
+    margin-left: 50px;
+}
+
+header h1, header p{
+    padding-left: 50px;
+    margin: 0;
+}
+
+#selection, label, input {
+    cursor: default;
+}
+
+#copy-btn, #icon, .wrapper2 button, .slider {
+    cursor: pointer;
+}
+
+#icon:hover, .slider:hover {
+    opacity: 1;
+}
+
+.wrapper2 button:active, #copy-btn:active{
+    transform: scale(0.98);
+}
+
+/* First Section [headers, change theme, generate pass btn] */
 
 .wrapper {
     border-bottom: 5px solid #065F46;
     border-right: 5px solid #065F46;
     border-radius: 5%;
     background-color: #E5E7EB; 
-    /* 111827 */
     width: 37rem;
     height: 37rem;
     margin: 4rem auto 0;
     font-family: inherit;
 }
 
+.wrapperDark {
+    background-color: #111827; 
+}
+
 header h1{
     color: black;
-    margin: 0;
     padding-top: 50px;
-    padding-left: 50px;
     padding-bottom: 0;
 }
 
 header p {
-    font-weight: inherit;
-    margin: 0;
     padding-top: 5px;
     color: #6B7280;
-    padding-left: 50px;
     font-size: 1.25rem;
 }
 
@@ -50,25 +68,23 @@ header p {
     margin-top: 51px;
     background: #10B981;
     color: #F3F4F6;
-    margin-left: 50px;
     padding: 10px 17px 10px 15px;
     border: none;
     gap: 12px;
     border-radius: 6px;
-    cursor: pointer;
     margin-bottom: 35px;
 }
 
-.wrapper2 button:active, #copy-btn:active{
-    transform: scale(0.98);
+#icon{
+    opacity: 0.85;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 300px;
 }
 
-.wrapper2 button:hover, #copy-btn:hover{
- background: #059669;
-}
+/* Section 2 [adjust pass length & everything below it] */
 
 .slidecontainer {
-    margin-left: 50px;
     margin-right: 50px;
     margin-bottom: 0;
     border-top: 1px solid #D1D5DB;
@@ -76,16 +92,11 @@ header p {
 
 .slider{
   background-color: black;
-  cursor: pointer;
   width: 100%;
   height: 50px;
   margin-bottom: 0px;
   opacity: 0.7; 
   transition: opacity 0.2s;
-}
-
-.slider:hover{
-    opacity: 1;
 }
 
 #psw-adjust{
@@ -96,43 +107,29 @@ header p {
 }
 
 #selection{
-    cursor: default;
     color: #374151;
     display: inline;
     font-family: inherit;
-    margin-left: 50px;
-}
-
-label {
-    cursor: default;
 }
 
 input {
-    cursor: default;
     height: 10px;
     width: 10px;
 }
 
-
-#copy-img{
-    width: 2%;
-    height: 2%;
-}
 #btns {
     display: inline-flex;
-    margin-left: 50px;
     margin-top: 35px;
 }
+
 #pass-btn{
     background-color: #9CA3AF;
     border: none;
-    gap: 12px;
     border-radius: 6px;
     min-width: 350px;
     max-width: 350px;
     min-height: 40px;
     max-height: 40px;
-    text-align: center;
 }
 
 #copy-btn{
@@ -140,37 +137,6 @@ input {
     background: #10B981;
     min-height: 35px;
     color: #F3F4F6;
-    font-size: 1.25rem;
-    font-family: inherit;
-    cursor: pointer;
     border-radius: 6px;
     border: none;
-}
-
-#btns p{
-    font-family: inherit;
-    position: relative;
-     bottom: 5px;
-}
-
-#footer{
-    display: block;
-    margin-left: 50px;
-}
-
-a{
-    color: inherit;
-}
-
-#icon{
-    position: relative;
-    opacity: 0.85;
-    width: 1.5rem;
-    height: 1.5rem;
-    cursor: pointer;
-    margin-left: 300px;
-}
-
-#icon:hover{
-    opacity: 1;
 }

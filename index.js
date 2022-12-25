@@ -14,14 +14,12 @@ const passLengthCounter = document.getElementById("psw-adjust");
 const copyBtn = document.getElementById("copy-btn");
 const themeIcon = document.getElementById("icon");
 const theme = document.getElementById("theme");
-const adjustTheme = document.getElementById("psw-adjust");
 const checkBoxTheme = document.getElementById("selection");
 const genColor = document.getElementById("genColor");
 
 
 let passwordLength = 10;
 let catCounter = 0;
-let currentDisplay = "light";
 
 let checkBoxes = {
     uppercase: false,
@@ -30,37 +28,50 @@ let checkBoxes = {
     specChars: false,
 }
 
-function switchIcon(){
-    if(currentDisplay === "light"){
-        // adjust the background color to dark
-        theme.classList.remove("wrapper");
-        theme.classList.add("wrapperDark"); 
-        // changes the font color of the "password length: x"
-        adjustTheme.style.color= "#6B7280";
-        // changes the font color of the checkboxes
-        checkBoxTheme.style.color = "#6B7280";
-        // changes the font color of the text "Generate a"
-        genColor.style.color = "#E5E7EB";
-        themeIcon.style.filter = "invert(35%) sepia(96%) saturate(661%) hue-rotate(121deg) brightness(100%) contrast(96%)";
-        themeIcon.style.transform = "scaleX(-1)";
-        currentDisplay = "dark";
+/*
+    Code for theme
+*/
 
+// user wants to switch theme
+function switchIcon(){
+    if(localStorage.getItem("Theme") ==  "light"){
+        setTheme("dark")
     } else { 
+        setTheme("light")
+    } 
+}
+
+function setTheme(themeSet){
+    if (themeSet === "light"){
         // adjust the background color to light
         theme.classList.remove("wrapperDark"); 
-        theme.classList.add("wrapper");
         // changes the font color of the "password length: x"
-        adjustTheme.style.color= "#374151";
+        passLengthCounter.style.color = '#374151';
         // changes the font color of the checkboxes
-        checkBoxTheme.style.color = "#374151";
+        checkBoxTheme.style.color = '#374151';
         // changes the font color of the text "Generate a"
         genColor.style.color = "black";
         themeIcon.style.filter = "";
         themeIcon.style.transform = "scaleX(1)";
-        currentDisplay = "light";
-    } 
+        localStorage.setItem('Theme', 'light');
+    } else {
+        // adjust the background color to dark
+        theme.classList.add("wrapperDark"); 
+        // changes the font color of the "password length: x"
+         passLengthCounter.style.color = '#6B7280';
+        // changes the font color of the checkboxes
+        checkBoxTheme.style.color = '#6B7280';
+        // changes the font color of the text "Generate a"
+        genColor.style.color = "#E5E7EB";
+        themeIcon.style.filter = "invert(35%) sepia(96%) saturate(661%) hue-rotate(121deg) brightness(100%) contrast(96%)";
+        themeIcon.style.transform = "scaleX(-1)";
+        localStorage.setItem('Theme', 'dark');
+    }
 }
 
+/*
+    Password Generation
+*/
 
 // gets rid of any pass generated password showing up
 function resetContents(){
@@ -106,8 +117,6 @@ function pushBack(name){
 function remove(name){
     // redefine array and reset it
     passGen = [];
-    console.log("Contents of passGen [in-remove]:");
-    console.log(passGen);
     
     let newArray = [];
     // have to create a new array here because using old array (arraysNum) will cause an infinite loop in the for loop
@@ -168,21 +177,13 @@ document.getElementById("#$&").addEventListener("click", (event) => {
 
 // update the pass length var when a person clicks the slider
 passRange.addEventListener("click", event => {
-passwordLength = event.target.value;
+  passwordLength = event.target.value;
   passLengthCounter.textContent = "adjust password length: " + passwordLength;
 });
 // update the pass length var when a person uses arrows to adjust the slider
 passRange.addEventListener("keyup", event => {
     passwordLength = event.target.value;
       passLengthCounter.textContent = "adjust password length: " + passwordLength;
-});
-copyBtn.addEventListener("click", event => {
-    let copyText = document.getElementById("pass-btn");
-    // Select the text field
-    content = copyText.textContent;
-    // Copy the text inside the text field
-    navigator.clipboard.writeText(content);
-    alert("Copied the text: " + content);
 });
 
 // checks if one of the checkboxes have been checked
@@ -209,4 +210,16 @@ passBtn.addEventListener("click", event => {
     } else{
         alert("Please select a check box.")
     }
+});
+
+/*
+    Copy to keyboard
+*/
+   copyBtn.addEventListener("click", event => {
+    let copyText = document.getElementById("pass-btn");
+    // Select the text field
+    content = copyText.textContent;
+    // Copy the text inside the text field
+    navigator.clipboard.writeText(content);
+    alert("Copied the text: " + content);
 });
